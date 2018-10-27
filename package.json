@@ -1,0 +1,24 @@
+{
+  "name": "rss-feed",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benji7425/discord-bot-rss-feed.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benji7425/discord-bot-rss-feed/issues"
+  },
+  "homepage": "https://github.com/benji7425/discord-bot-rss-feed#readme",
+  "dependencies": {
+    "@types/node": "^10.12.0",
+    "disharmony": "^0.2.3",
+    "typescript": "^3.1.3"
+  }
+}
