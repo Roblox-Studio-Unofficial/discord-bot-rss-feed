@@ -19,6 +19,10 @@
   "dependencies": {
     "@types/node": "^10.12.0",
     "disharmony": "^0.2.3",
+    "shortid": "^2.2.13",
     "typescript": "^3.1.3"
+  },
+  "devDependencies": {
+    "@types/shortid": "0.0.29"
   }
 }
