@@ -3,8 +3,9 @@ import { DisharmonyClient, Command, PermissionLevel } from "disharmony"
 import { Feed } from "../models/feed";
 import { generate as GenerateID } from "shortid"
 import { parse as ParseUrl } from "url"
+import { RssReader } from "../service/rss-reader/rss-reader";
 
-async function invoke(params: string[], message: Message, client: DisharmonyClient)
+async function invoke(params: string[], message: Message, client: DisharmonyClient, feedReader: RssReader)
 {
     //validate and retrieve channel ID
     if (message.mentions.channels.size === 0)
@@ -39,16 +40,18 @@ async function invoke(params: string[], message: Message, client: DisharmonyClie
         message.member, true
     )
 
-    message.reply("Please wait while I validate the RSS feed")
-
-    //todo inject a feed reader somehow...
-
     if (response.content.toLowerCase() === "n")
         return "Your feed has not been saved"
     else
     {
-        feeds.push(newFeed)
-        return "Your new feed has been saved!"
+        message.reply("Please wait while I validate the RSS feed")
+
+        const isValidFeed = await feedReader.validateFeed(url)
+
+        if(isValidFeed)
+            feeds.push(newFeed)
+        
+        return isValidFeed ? "Your new feed has been saved!" : "This RSS feed is invalid"
     }
 }
 
