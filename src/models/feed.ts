@@ -1,5 +1,4 @@
-import { SerializableHybrid } from "disharmony/lib/hybridization/hybrid";
-import { serialize } from "disharmony";
+import { serialize, SerializableHybrid } from "disharmony";
 
 export class Feed extends SerializableHybrid
 {

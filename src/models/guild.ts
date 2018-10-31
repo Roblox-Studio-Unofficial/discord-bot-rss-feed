@@ -1,5 +1,4 @@
-import { Guild as DGuild, fromDiscord } from "disharmony"
-import { dataMember } from "disharmony/lib/hybridization/decorators";
+import { Guild as DGuild, fromDiscord, dataMember } from "disharmony"
 import { Channel } from "./channel"
 
 export class Guild extends DGuild

@@ -1,6 +1,5 @@
 import { Message } from "../models/message"
-import { DisharmonyClient } from "disharmony"
-import Command, { PermissionLevel } from "disharmony/lib/commands/command"
+import { DisharmonyClient, Command, PermissionLevel } from "disharmony"
 import { Feed } from "../models/feed";
 import { generate as GenerateID } from "shortid"
 import { parse as ParseUrl } from "url"

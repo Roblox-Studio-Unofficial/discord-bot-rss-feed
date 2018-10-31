@@ -1,7 +1,5 @@
-import { SerializableHybrid } from "disharmony/lib/hybridization/hybrid";
-import { fromDiscord, serialize } from "disharmony";
-import { dataMember } from "disharmony/lib/hybridization/decorators";
-import { Feed } from "./feed";
+import { fromDiscord, serialize, dataMember, SerializableHybrid } from "disharmony"
+import { Feed } from "./feed"
 
 export class Channel extends SerializableHybrid
 {
