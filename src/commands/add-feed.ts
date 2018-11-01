@@ -42,7 +42,7 @@ async function invoke(params: string[], message: Message, client: DisharmonyClie
 
     if (response.content.toLowerCase() === "n")
         return "Your feed has not been saved"
-    else
+    else if(response.content.toLocaleUpperCase() === "y")
     {
         message.reply("Please wait while I validate the RSS feed")
 
@@ -53,6 +53,8 @@ async function invoke(params: string[], message: Message, client: DisharmonyClie
         
         return isValidFeed ? "Your new feed has been saved!" : "This RSS feed is invalid"
     }
+    else
+        return "Please enter **y** or **n** for yes or no"
 }
 
 module.exports = new Command(

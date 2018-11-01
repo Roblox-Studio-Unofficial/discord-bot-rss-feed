@@ -10,5 +10,5 @@ export class Channel extends SerializableHybrid
 
     public get isText() { return this.type === "text" }
 
-    @serialize @dataMember(Feed) public feeds: Feed[]
+    @serialize @dataMember(Feed) public feeds: Feed[] = []
 }
