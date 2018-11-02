@@ -1,6 +1,8 @@
 import addFeed = require("./add-feed");
+import { RssParser as LibRssParser } from "../service/lib-rss-parser/rss-parser";
+import { Command } from "disharmony";
 
-(addFeed as any).invokeDependency = {} //todo inject rss reader here
+(addFeed as Command).invokeDependency = LibRssParser
 
 module.exports = [
     addFeed,

@@ -18,7 +18,9 @@
   "homepage": "https://github.com/benji7425/discord-bot-rss-feed#readme",
   "dependencies": {
     "@types/node": "^10.12.0",
+    "@types/xml2js": "^0.4.3",
     "disharmony": "^0.3.0",
+    "rss-parser": "^3.5.2",
     "shortid": "^2.2.13",
     "typescript": "^3.1.3"
   },
