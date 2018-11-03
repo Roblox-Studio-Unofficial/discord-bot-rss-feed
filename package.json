@@ -20,7 +20,7 @@
     "@types/node": "^10.12.0",
     "@types/xml2js": "^0.4.3",
     "disharmony": "^0.3.0",
-    "rss-parser": "^3.5.2",
+    "rss-parser": "git+https://github.com/benji7425/rss-parser.git#6e96340f66f9c4dc50b95a56777b8c95a9a96654",
     "shortid": "^2.2.13",
     "typescript": "^3.1.3"
   },
