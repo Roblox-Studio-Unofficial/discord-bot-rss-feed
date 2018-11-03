@@ -33,28 +33,31 @@ async function invoke(params: string[], message: Message, client: DisharmonyClie
     newFeed.url = url
     newFeed.roleID = roleID
 
-    //request confirmation
-    const response = await Message.ask(
-        client, message.channelID,
-        `Are you happy with this? (y/n)\n${newFeed.toString()}`,
-        message.member, true
-    )
-
-    if (response.content.toLowerCase() === "n")
-        return "Your feed has not been saved"
-    else if(response.content.toLocaleUpperCase() === "y")
+    let prompt = `Are you happy with this? (y/n)\n${newFeed.toString()}`
+    let userResponse, commandResponse = ""
+    while (commandResponse === "")
     {
-        message.reply("Please wait while I validate the RSS feed")
+        //request confirmation
+        userResponse = (await Message.ask(client, message.channelID, prompt, message.member, true)).content.toLowerCase()
 
-        const isValidFeed = await feedReader.validateFeed(url)
+        if (userResponse === "y")
+        {
+            message.reply("Please wait while I validate the RSS feed")
 
-        if(isValidFeed)
-            feeds.push(newFeed)
-        
-        return isValidFeed ? "Your new feed has been saved!" : "This RSS feed is invalid"
+            if (await feedReader.validateFeed(url))
+            {
+                feeds.push(newFeed)
+                commandResponse = "Your new feed has been saved!"
+            }
+            else
+                commandResponse = "This RSS feed is invalid"
+        }
+        else if (userResponse === "n")
+            commandResponse = "Your feed has not been saved"
+        else
+            prompt = "Please enter **y** or **n** for yes or no"
     }
-    else
-        return "Please enter **y** or **n** for yes or no"
+    return commandResponse
 }
 
 module.exports = new Command(
