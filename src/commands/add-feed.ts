@@ -33,7 +33,7 @@ async function invoke(params: string[], message: Message, client: DisharmonyClie
     newFeed.url = url
     newFeed.roleID = roleID
 
-    let prompt = `Are you happy with this? (y/n)\n${newFeed.toString()}`
+    let prompt = `Are you happy with this? (y/n)\n\`\`\`JSON\n${JSON.stringify(newFeed, null, "\t")}\`\`\``
     let userResponse, commandResponse = ""
     while (commandResponse === "")
     {
